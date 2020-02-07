@@ -38,6 +38,7 @@ let rec min_bounds : (int*int) list -> int*int -> int*int = fun pts acc ->
             | _ -> failwith"nonsense point")
         | [] -> acc)
     | _ -> failwith"bad bound found"
+
 let rec max_bounds : (int*int) list -> int*int -> int*int = fun pts acc ->
     match acc with 
     | (x, y) -> 
@@ -58,6 +59,7 @@ let rec max_bounds : (int*int) list -> int*int -> int*int = fun pts acc ->
             | _ -> failwith"nonsense point")
         | [] -> acc)
     | _ -> failwith"bad bound found"
+
 let rec print_helper : int*int -> int*int -> (int*int) list -> int = fun cur bound points ->
     match cur with
     | (cx,cy) -> 
@@ -90,13 +92,13 @@ let print_tuple = fun t ->
     | (x, y) -> 
         Printf.printf "(%d,%d)\n" x y
     | _ -> Printf.printf "\n"
+
 let rec print_tuple_list = fun l ->
     match l with
     | h::t ->
         (print_tuple h;
         print_tuple_list t)
     | [] -> Printf.printf "[]\n"
-
 (* end functions for debugging purposes *)
 
 (* functions to remove repeats from (int*int) lists *)
